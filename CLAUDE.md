@@ -9,7 +9,7 @@ A cross-platform tool (Microsoft Research, Deep Program Understanding group) tha
 ## Build & run
 
 ### Main detector (`DuplicateCodeDetector/`)
-Requires .NET Core 2.1+.
+Targets net9.0 (as do `CsharpTokenizer` and `FSharpTokenizer`).
 
 ```bash
 dotnet build DuplicateCodeDetector/DuplicateCodeDetector.csproj
