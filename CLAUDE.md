@@ -31,7 +31,7 @@ Each is a standalone project producing `.jsonl.gz` files consumable by the detec
 
 - **C#** (`CsharpTokenizer/`): `dotnet run --project tokenizers/CsharpTokenizer/CsharpTokenizer/CsharpTokenizer.csproj -- <projectsFolder> <outputFolder> true|false` — uses Roslyn (`Microsoft.CodeAnalysis.CSharp`) to tokenize each `.cs` file under each immediate subdirectory of `<projectsFolder>` (each subdirectory = one project → one output `.jsonl.gz`).
 - **F#** (`FSharpTokenizer/`): same CLI shape; uses `FSharp.Compiler.Service`'s line tokenizer.
-- **Java** (`tokenizers/java/`, Maven): `mvn package` then run `javatokenizer.Extractor`; uses JavaParser, same per-subdirectory project convention.
+- **Java** (`tokenizers/java/`, Maven, targets `maven.compiler.release=26`): `mvn package` then run `javatokenizer.Extractor`; uses JavaParser, same per-subdirectory project convention.
 - **JavaScript** (`tokenizers/javascript/parser.js`): `npm install` then `node parser.js <projectsFolder> <outputFolder>`; uses `esprima`. No identifiers-only flag — always extracts all tokens (hardcoded `false` in `extractForFolder` call).
 - **Python** (`tokenizers/python/`): two independent scripts — `tokenizepythoncorpus.py` (stdlib `tokenize`, multiprocessing, per-project-folder) and `baronetokenizer.py` (regex-based, for the Barone et al. code-docstring corpus format specifically). Both depend on `dpu_utils` and `docopt`.
 
